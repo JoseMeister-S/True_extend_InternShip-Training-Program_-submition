@@ -1,12 +1,15 @@
 import { error } from "console";
 import { NextResponse } from "next/server";
 
-async function fetchSearchMedia(query) {
+async function fetchSearchMedia(query, entity) {
   try {
-    const response = await fetch(
-      `https://itunes.apple.com/search?term=${query}&limit=24`,
-      { method: "GET" }
-    );
+    let madeLink = "";
+    if (entity === "") {
+      madeLink = `https://itunes.apple.com/search?term=${query}&limit=24`;
+    } else {
+      madeLink = `https://itunes.apple.com/search?term=${query}&&entity=${entity}&limit=24`;
+    }
+    const response = await fetch(madeLink, { method: "GET" });
     if (!response.ok) {
       throw new Error(`Network response not ok: ${response.status}`);
     }
@@ -21,8 +24,10 @@ async function fetchSearchMedia(query) {
 export async function GET(request) {
   try {
     const searchParams = request.nextUrl.searchParams;
+    console.log(searchParams);
     const query = searchParams.get("query");
-    const media = await fetchSearchMedia(query);
+    const entity = searchParams.get("entity");
+    const media = await fetchSearchMedia(query, entity);
     return NextResponse.json(media);
   } catch (error) {
     console.error("Error in GET function:", error);

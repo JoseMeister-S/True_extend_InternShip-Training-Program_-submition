@@ -3,11 +3,14 @@ import { useState } from "react";
 
 export default function SearchBar({ getSearchResults }) {
   const [query, setQuery] = useState("");
+  const [mediaType, setMediaType] = useState("");
   const handleSumbit = async (e) => {
     e.preventDefault();
     console.log(e);
     try {
-      const response = await fetch(`/api/search?query=${query}`);
+      const response = await fetch(
+        `/api/search?query=${query}&entity=${mediaType}`
+      );
       if (!response.ok) {
         throw new Error(`Network response not ok: ${response.status}`);
       }
@@ -34,14 +37,15 @@ export default function SearchBar({ getSearchResults }) {
         />
         <select
           className="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-          //value={mediaType}
-          //onChange={(e) => setMediaType(e.target.value)}
+          value={mediaType}
+          onChange={(e) => setMediaType(e.target.value)}
         >
-          <option value="all">All</option>
-          <option value="music">Music</option>
-          <option value="movie">Movie</option>
+          <option value="all"></option>
+          <option value="song">Songs</option>
+          <option value="book">Books</option>
+          <option value="album">Album</option>
           <option value="podcast">Podcast</option>
-          {/* Add other media types as needed */}
+          <option value="artist">Artists</option>
         </select>
         <button
           className="bg-black hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"

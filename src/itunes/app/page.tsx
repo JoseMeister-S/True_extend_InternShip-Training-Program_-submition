@@ -17,8 +17,8 @@ export default function Home() {
     getMedia();
   }, []);
   return (
-    <main className="text-center">
-      <h1 className="font-sans">Itunes</h1>
+    <main className="text-center mx-auto my-auto">
+      <h1 className="font-sans text-xl">Itunes</h1>
       <SearchBar getSearchResults={(results: any) => setMedia(results)} />
       <DisplayCards media={media} />
     </main>

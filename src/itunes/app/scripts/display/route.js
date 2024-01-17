@@ -15,7 +15,7 @@ async function fetchMedia() {
     return data;
   } catch (error) {
     console.error("Error fetching media:", error);
-    throw error; // rethrow the error to indicate failure
+    throw error;
   }
 }
 

@@ -1,15 +1,23 @@
 "use client";
-
-import Link from "next/link";
 import { useState } from "react";
 
 export default function SearchBar({ getSearchResults }) {
   const [query, setQuery] = useState("");
   const handleSumbit = async (e) => {
     e.preventDefault();
-    const response = await fetch(`/script/search?query=${query}`);
-    const data = await response.json();
-    getSearchResults(data);
+    try {
+      const response = await fetch(`/api/search?searchTerm=${query}`);
+      if (!response.ok) {
+        throw new Error(`Network response not ok: ${response.status}`);
+      }
+      const data = await response.json();
+      if (!data) {
+        throw new Error("Empty response from the server");
+      }
+      getSearchResults(data);
+    } catch (error) {
+      console.error("Error fetching or parsing data:", error);
+    }
   };
   return (
     <div>

@@ -4,7 +4,7 @@ import { NextResponse } from "next/server";
 async function fetchMedia() {
   try {
     const response = await fetch(
-      "https://itunes.apple.com/search?term=jack+johnson&limit=25",
+      "https://itunes.apple.com/search?term=jack+johnson&limit=24",
       { method: "GET" }
     );
     if (!response.ok) {

@@ -5,8 +5,9 @@ export default function SearchBar({ getSearchResults }) {
   const [query, setQuery] = useState("");
   const handleSumbit = async (e) => {
     e.preventDefault();
+    console.log(e);
     try {
-      const response = await fetch(`/api/search?searchTerm=${query}`);
+      const response = await fetch(`/api/search?query=${query}`);
       if (!response.ok) {
         throw new Error(`Network response not ok: ${response.status}`);
       }

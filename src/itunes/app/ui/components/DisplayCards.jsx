@@ -8,7 +8,9 @@ export default function DisplayCards({ media }) {
           className="border border-gray-300 rounded-md mx-1 flex flex-col justify-center items-center"
           key={res.trackId}
         >
-          <h2 className="font-sans text-3xl ">{res.trackName}</h2>
+          <h2 className="font-sans text-3xl ">
+            {res.trackName || res.collectionName}
+          </h2>
           <p className="font-sans">{res.artistName}</p>
           <div className="flex justify-center items-center">
             {res.artworkUrl100 ? (
@@ -29,7 +31,9 @@ export default function DisplayCards({ media }) {
               />
             )}
           </div>
-          <p className="font-sans">{res.trackPrice}</p>
+          <p className="font-sans">
+            {res.trackPrice || res.price || res.collectionPrice}
+          </p>
         </li>
       ))}
     </ul>

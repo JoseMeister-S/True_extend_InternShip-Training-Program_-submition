@@ -31,9 +31,11 @@ export default function DisplayCards({ media }) {
               />
             )}
           </div>
-          <p className="font-sans">
-            {res.trackPrice || res.price || res.collectionPrice}
-          </p>
+          {res.trackPrice || res.price || res.collectionPrice ? (
+            <p className="font-sans">
+              {res.trackPrice || res.price || res.collectionPrice}
+            </p>
+          ) : null}
         </li>
       ))}
     </ul>

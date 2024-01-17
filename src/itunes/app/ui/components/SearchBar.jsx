@@ -32,6 +32,17 @@ export default function SearchBar({ getSearchResults }) {
           placeholder="E.g: Jack Johnson"
           onChange={(e) => setQuery(e.target.value)}
         />
+        <select
+          className="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          //value={mediaType}
+          //onChange={(e) => setMediaType(e.target.value)}
+        >
+          <option value="all">All</option>
+          <option value="music">Music</option>
+          <option value="movie">Movie</option>
+          <option value="podcast">Podcast</option>
+          {/* Add other media types as needed */}
+        </select>
         <button
           className="bg-black hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
           type="submit"

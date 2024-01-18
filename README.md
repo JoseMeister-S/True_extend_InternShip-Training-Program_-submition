@@ -15,8 +15,6 @@
 
 ## Usage Guide
 
-Explore the app's features and functionalities:
-
 - **Search:**
 
   - Use the search bar to find your favorite media content.
@@ -40,8 +38,6 @@ Explore the app's features and functionalities:
   - If the price is 0, it will not be displayed.
 
 ## API Reference
-
-The Awesome Media App provides the following APIs:
 
 - **Search API:**
 

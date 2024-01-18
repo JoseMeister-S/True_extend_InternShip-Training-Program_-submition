@@ -2,7 +2,6 @@
 import { useState, useEffect } from "react";
 import DisplayCards from "./ui/components/DisplayCards";
 import SearchBar from "./ui/components/SearchBar";
-import DefaultImage from "srcitunesapppublicDefault_Image.png";
 export default function Home() {
   const [media, setMedia] = useState([]);
 

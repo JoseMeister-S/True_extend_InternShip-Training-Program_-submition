@@ -2,7 +2,7 @@ import Image from "next/image";
 import DefaultImage from "../../public/Default_Image.png";
 export default function DisplayCards({ media }) {
   return (
-    <ul className="grid grid-cols-4 grid-rows-10 gap-4">
+    <ul className="grid grid-cols-5 grid-rows-10 gap-5">
       {media.map((res) => (
         <li
           className="border border-gray-300 rounded-md mx-1 flex flex-col justify-center items-center"

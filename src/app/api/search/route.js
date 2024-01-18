@@ -4,9 +4,9 @@ async function fetchSearchMedia(query, entity) {
   try {
     let madeLink = "";
     if (entity === "") {
-      madeLink = `https://itunes.apple.com/search?term=${query}&limit=24`;
+      madeLink = `https://itunes.apple.com/search?term=${query}&limit=25`;
     } else {
-      madeLink = `https://itunes.apple.com/search?term=${query}&&entity=${entity}&limit=24`;
+      madeLink = `https://itunes.apple.com/search?term=${query}&&entity=${entity}&limit=25`;
     }
     const response = await fetch(madeLink, { method: "GET" });
     if (!response.ok) {
